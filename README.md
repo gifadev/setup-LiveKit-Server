@@ -5,10 +5,58 @@ Panduan lengkap untuk menjalankan LiveKit Server di jaringan LAN menggunakan Doc
 ## 📋 Prasyarat
 
 - OS: Ubuntu 22.04 (atau setara)
-- Docker Engine + Docker Compose v2 (sudah terpasang)
+- Docker Engine + Docker Compose v2
 - Firewall dapat dikonfigurasi (UFW/iptables)
 - IP server tetap (contoh: `172.15.1.156`)
 - Akses shell root/sudo
+
+## 🚀 Instalasi
+
+### 1. Pastikan Snapd Aktif
+
+Snapd umumnya sudah terinstall dan aktif di Ubuntu 22.04:
+
+```bash
+sudo systemctl enable --now snapd
+```
+
+### 2. Install Docker dari Snap
+
+```bash
+sudo snap install docker
+```
+
+Snap akan menginstall:
+- Docker Engine
+- Docker Compose v2
+- Docker daemon (`dockerd`)
+
+### 3. Verifikasi Instalasi
+
+Cek status service Docker:
+
+```bash
+snap services docker
+```
+
+Output yang diharapkan:
+```
+Service               Startup  Current  Notes
+docker.dockerd        enabled  active   -
+```
+
+### 4. Verifikasi Versi
+
+```bash
+docker --version
+docker compose version
+```
+
+Output contoh:
+```
+Docker version 24.0.x, build xxxxxxx
+Docker Compose version v2.x.x
+```
 
 ## 📁 1. Struktur Direktori
 
